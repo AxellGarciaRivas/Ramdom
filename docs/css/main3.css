@@ -1,0 +1,973 @@
+:root {
+  --skyblue-color: #0091ff;
+  --orange-color: #df3b00;
+  --darkblue-color: #002f54;
+  --letter-color: #666666;
+  --main-color: #c3d1e0a6;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif, Arial;
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+/*=========================
+        style bar nav 
+==========================*/
+
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 9;
+  top: 0;
+}
+
+/* ==========================
+  style bottom off canvas 
+========================== */
+
+.active_off-canvas {
+  position: absolute;
+  width: 1.7rem;
+  height: 1.45rem;
+  top: .65rem;
+  right: .55rem;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 99;
+}
+
+/* ===========================
+      go back off canvas
+============================ */
+
+.active_off-canvas:checked~.container-link {
+  left: 0;
+  opacity: 1;
+}
+
+/* =======================
+      style icon burger
+======================= */
+
+.container-burger {
+  background-color: var(--darkblue-color);
+  height: 2.7rem;
+  width: 2.7rem;
+  position: absolute;
+  border-radius: 50%;
+  top: .1rem;
+  right: .1rem;
+}
+
+.burger {
+  position: absolute;
+  top: 1.15rem;
+  right: .45rem;
+  width: 1.7rem;
+  height: .25rem;
+  background-color: var(--orange-color);
+  border-radius: .5rem;
+  z-index: 98;
+  transition: background-color 1s ease;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: var(--orange-color);
+  border-radius: .5rem;
+  width: 1.7rem;
+  height: .25rem;
+  transition: transform 1s ease;
+}
+
+/* =====================
+      effect burger
+========================*/
+
+.burger::before {
+  top: -.6rem;
+}
+
+.burger::after {
+  top: .6rem;
+}
+
+.active_off-canvas:checked~.container-burger>.burger::before {
+  transform: translate(.1rem, .6rem)rotateZ(405deg);
+}
+
+.active_off-canvas:checked~.container-burger>.burger {
+  background-color: transparent;
+}
+
+.active_off-canvas:checked~.container-burger>.burger::after {
+  transform: translate(.1rem, -.6rem)rotate(-405deg);
+}
+
+.active_off-canvas:checked~label,
+.active_off-canvas:checked {
+  position: fixed;
+}
+
+/* ==============================
+      style container link
+================================*/
+
+.container-link {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #002f54;
+  top: 0;
+  left: 100%;
+  transition: left .5s ease, opacity .8s ease;
+  opacity: 0;
+}
+
+/* ===========================
+      logo off canvas
+=============================*/
+
+.container-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-logo {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  padding-top: 2rem;
+  padding-bottom: 4.5rem;
+  transition: transform .3s ease .2s;
+}
+
+.logo-fixed {
+  color: var(--skyblue-color);
+  font-size: 1.4rem;
+  line-height: 1.1rem;
+}
+
+.subtitle-logo {
+  font-size: .31rem;
+  color: var(--orange-color);
+}
+
+.active_off-canvas:checked~.container-link>.container-logo>.flex-logo {
+  transform: scale(2.1);
+}
+
+/* ===========================
+      style ancle or link
+=============================*/
+
+.link {
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 1.5rem 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* =======================================
+    style social networks off canvas
+=========================================*/
+.container-img-link {
+  display: flex;
+  flex-flow: flex row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.link-logo {
+  margin: 0 .8rem;
+  width: 1.5rem;
+}
+
+.link-logo>i {
+  font-size: 1.5rem;
+  color: var(--skyblue-color);
+}
+
+/* =================================
+    effect link social networks
+===================================*/
+
+.link:nth-child(2) {
+  opacity: 0;
+  transition: opacity .2s ease .3s, color .2s ease .3s;
+}
+
+.link:nth-child(3) {
+  opacity: 0;
+  transition: opacity .2s ease .4s, color .2s ease .4s;
+}
+
+.link:nth-child(4) {
+  opacity: 0;
+  transition: opacity .2s ease .5s, color .2s ease .5s;
+}
+
+.link:nth-child(5) {
+  opacity: 0;
+  transition: opacity .2s ease .6s, color .2s ease .6s;
+}
+
+.link:nth-child(6) {
+  opacity: 0;
+  transition: opacity .2s ease .7s, color .2s ease .7s;
+}
+
+.container-img-link {
+  opacity: 0;
+  transition: opacity .2s ease .8s;
+}
+
+.active_off-canvas:checked~.container-link>.link:nth-child(2),
+.active_off-canvas:checked~.container-link>.link:nth-child(3),
+.active_off-canvas:checked~.container-link>.link:nth-child(4),
+.active_off-canvas:checked~.container-link>.link:nth-child(5),
+.active_off-canvas:checked~.container-link>.link:nth-child(6) {
+  opacity: 1;
+  color: var(--orange-color);
+}
+
+.active_off-canvas:checked~.container-link>.container-img-link {
+  opacity: 1;
+}
+
+
+/* ===================================
+      style title-main hero-image
+==================================== */
+
+header {
+  background-color: #000;
+}
+
+.hero-image {
+  background-image: url(../img/triangulos.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
+  text-align: center;
+  position: relative;
+}
+
+.background-hero-image {
+  background-color: #00000095;
+}
+
+.container-title-main {
+  padding: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.title-flex-end {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}
+
+/* ========================
+    effect title main
+==========================*/
+
+@-webkit-keyframes move {
+  0% {
+    opacity: 0;
+    transform: translate(6rem);
+  }
+
+  50% {
+    transform: translate(-4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    transform: translate(6rem);
+  }
+
+  50% {
+    transform: translate(-4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.9rem;
+  color: var(--skyblue-color);
+  -webkit-animation: move 2s ease forwards;
+          animation: move 2s ease forwards;
+}
+
+.subtitle {
+  font-size: .55rem;
+  color: var(--orange-color);
+  font-weight: bold;
+  -webkit-animation: move 2s ease forwards;
+          animation: move 2s ease forwards;
+}
+
+/* =================
+        intro
+================== */
+
+.container-intro {
+  background-color: var(--main-color);
+}
+
+.background-intro {
+  background-color: var(--main-color);
+  padding: 10% 5%;
+}
+
+.intro-one {
+  font-family: 'Signika Negative', sans-serif;
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+  color: #313131;
+  text-align: center;
+}
+
+.underline {
+  -webkit-text-decoration: underline var(--skyblue-color);
+          text-decoration: underline var(--skyblue-color);
+  text-transform: capitalize;
+}
+
+hr {
+  width: 90%;
+  margin: 10% auto;
+  color: lightgray;
+}
+
+.intro-two .list {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-list {
+  font-family: 'Signika Negative', sans-serif;
+  font-size: .9rem;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 10%;
+  color: #313131;
+}
+
+
+.intro-list>li {
+  list-style: disc inside;
+  padding: .5rem 0;
+  padding-left: 1.2rem;
+}
+
+.container-intro-team {
+  background-image: url(../img/plano.png);
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-position: -100px;
+}
+
+.background-intro-team {
+  font-family: 'Signika Negative', sans-serif;
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+  background-color: #00000058;
+  padding: 20% 5%;
+}
+
+.intro-team {
+  color: #fff;
+  text-align: center;
+}
+
+/* =======================
+      content main
+=========================*/
+
+main {
+  background-color: var(--main-color);
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+  background-color: #eff0ff;
+}
+
+.flex-row-reverse {
+  flex-flow: row-reverse wrap;
+  background-color: #ffffffb9;
+}
+
+.flex-item {
+  flex: 0 0 100%;
+  padding: 5%;
+}
+
+.flex-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.text h3 {
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 5% 10% 10% 10%;
+  color: var(--orange-color);
+}
+
+.text p {
+  font-size: 1rem;
+  padding: 0 5% 5% 5%;
+  text-align: center;
+  color: var(--letter-color);
+}
+
+p>.detail {
+  display: block;
+}
+
+/*============================= 
+          style footer
+==============================*/
+
+footer {
+  background-color: var(--darkblue-color);
+  padding: 1rem;
+}
+
+.copyright {
+  color: #ffffff;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.contact {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: .5rem 0;
+}
+
+.contact>a {
+  text-decoration: none;
+  color: #ffffff;
+  line-height: 2rem;
+}
+
+.contact>a>i {
+  padding-right: .5rem;
+}
+
+.social-footer {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.social-link>i {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+
+
+
+/*============================================================================================
+                        Móviles en horizontal o tablets en vertical
+=============================================================================================*/
+
+@media screen and (min-width: 768px) {
+
+  /* ===========================
+        go back off canvas
+  ============================ */
+
+  .active_off-canvas:checked~.container-link {
+    left: 70%;
+  }
+
+  /* =======================
+      style icon burger
+  ======================= */
+
+  .container-burger {
+    background-color: var(--darkblue-color);
+    height: 2.7rem;
+    width: 100%;
+    position: absolute;
+    border-radius: 0%;
+    top: 0;
+    right: 0;
+    transition: height .5s ease, background-color .5s ease;
+  }
+
+  .active_off-canvas:checked~.container-burger {
+    height: 101vh;
+    background-color: #000000ce;
+  }
+
+  /* ==============================
+        style container link
+  ================================*/
+
+  .container-link {
+    width: 30%;
+    justify-content: flex-start;
+    padding-top: 4rem;
+  }
+
+  /* ===========================
+          logo off canvas
+  =============================*/
+
+  .logo-fixed {
+    color: var(--skyblue-color);
+    position: relative;
+  }
+
+  /* ===========================
+        style ancle or link
+  =============================*/
+
+  .link {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 1.5rem 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+
+  /* ===================================
+        style title-main hero-image
+  ==================================== */
+
+  .hero-image {
+    background-size: 100%;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+    line-height: 3.5rem;
+
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+  }
+
+  /* ================================
+          content main intro
+  ===================================*/
+
+  .background-intro {
+    padding: 10% 5%;
+  }
+
+  .intro-one {
+    font-size: 1.5rem;
+    line-height: 3.5rem;
+  }
+
+  hr {
+    margin: 10% auto;
+  }
+
+  .intro-list {
+    margin-top: 1rem;
+    margin-top: 10%;
+    width: 100%;
+    color: #313131;
+  }
+
+  .intro-list li {
+    padding: .5rem 0rem;
+    padding-left: 8rem;
+    font-size: 1.1rem;
+  }
+
+  .container-intro-team {
+    background-position: 0px;
+    background-size: cover;
+  }
+
+  .background-intro-team {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    background-color: #00000058;
+    padding: 20% 5%;
+  }
+
+  .intro-team {
+    color: #fff;
+    text-align: center;
+  }
+
+  .flex-item {
+    flex: 0 0 50%
+  }
+
+  .flex-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+  }
+
+  .text h3 {
+    font-size: 1.6rem;
+    padding: 5% 10% 10% 10%;
+  }
+
+  .text p {
+    font-size: 1rem;
+    padding: 0 5% 5% 5%;
+  }
+
+  /*============================= 
+        style footer
+  ==============================*/
+
+  footer {
+    line-height: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .copyright {
+    width: 55%;
+  }
+
+  .contact {
+    flex-flow: row;
+    justify-content: space-around;
+    width: 45%;
+    padding: 0;
+  }
+
+  .social-footer {
+    width: 20%;
+    padding-top: .5rem;
+  }
+}
+
+
+
+
+/*============================================================================================
+                          Tablets en horizonal y escritorios normales
+============================================================================================*/
+@media (min-width: 1024px) {
+
+  /* ==========================
+    style bottom off canvas 
+  ========================== */
+
+  .active_off-canvas {
+    display: none;
+  }
+
+  /* =======================
+      style icon burger
+  ======================= */
+
+  .container-burger {
+    height: 2.7rem;
+    width: 100%;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  /* =======================================
+      style social networks off canvas
+  =========================================*/
+  .flex-logo {
+    padding: 0;
+  }
+
+  .container-logo {
+    transform: scale(2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(2.7rem + .4rem);
+    padding: 0 4rem;
+    z-index: 2;
+    font-weight: bold;
+  }
+
+  /* ==============================
+  style container link
+  ================================*/
+
+  .container-link {
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #002f54;
+    height: calc(2.7rem + .4rem);
+    width: 100%;
+    left: 0;
+    opacity: 1;
+  }
+
+  /* ===========================
+          logo off canvas
+  =============================*/
+  .container-img-link {
+    display: none;
+  }
+
+  /* ===========================
+      style ancle or link
+  =============================*/
+
+  .link {
+    font-size: 1.5rem;
+    text-align: left;
+    padding: .3rem 1rem;
+    opacity: 1 !important;
+    width: auto !important;
+    display: inline;
+    transition: color .3s ease !important;
+  }
+
+  .link:hover {
+    color: var(--orange-color);
+  }
+
+  /* ===================================
+        style title-main hero-image
+  ==================================== */
+
+  .hero-image {
+    background-size: contain;
+  }
+
+  h1 {
+    font-size: 5.8rem;
+    line-height: 4.3rem;
+  }
+
+  .subtitle {
+    font-size: 1.26rem;
+  }
+
+  /* =================
+        intro
+  ================= */
+
+  .intro-one {
+    font-size: 2rem;
+  }
+
+  .intro-list {
+    margin-top: 5%;
+    width: 65%;
+  }
+
+  .intro-list>li {
+    font-size: 1.6rem;
+    padding: .5rem 0;
+    padding-left: 3.5rem;
+  }
+
+
+  /* ================================
+              content main
+  ===================================*/
+
+  .text h3 {
+    font-size: 2.1rem;
+    padding: 5% 10% 10% 10%;
+  }
+
+  .text p {
+    font-size: 1.2rem;
+    padding: 0 5% 5% 5%;
+  }
+
+  /*============================= 
+          style footer
+  ==============================*/
+
+  footer {
+    flex-flow: row wrap;
+  }
+
+  .copyright {
+    width: 40%;
+    line-height: 2.5rem;
+  }
+
+  .contact {
+    width: 35%;
+  }
+
+  .social-footer {
+    width: 10%;
+  }
+
+  .contact>a:hover,
+  .social-footer>a>i:hover {
+    color: var(--skyblue-color);
+}
+}
+
+
+
+/*============================================================================================
+                            Escritorios muy anchos
+  ==========================================================================================*/
+
+@media (min-width: 1200px) {
+
+  /* ===========================
+      style ancle or link
+  =============================*/
+
+  .link {
+    padding: .3rem 1.5rem;
+  }
+
+  /* ===================================
+      style title-main hero-image
+  ==================================== */
+
+  .hero-image {
+    background-size: cover;
+  }
+
+  .background-hero-image {
+    height: 100vh;
+  }
+
+  /* ========================
+      effect title main
+  ==========================*/
+
+  @-webkit-keyframes move {
+    0% {
+      opacity: 0;
+      transform: translate(6rem, 3.5rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(-18rem, 3.5rem);
+    }
+  }
+
+  @keyframes move {
+    0% {
+      opacity: 0;
+      transform: translate(6rem, 3.5rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(-18rem, 3.5rem);
+    }
+  }
+
+  h1 {
+    font-size: 5.8rem;
+    line-height: 4.4rem;
+  }
+
+  .subtitle {
+    font-size: 1.26rem;
+  }
+
+  /* =================
+        intro
+  ================= */
+
+  .container-intro {
+    height: 100vh;
+  }
+
+  .background-intro {
+    padding: 5% 5%;
+  }
+
+  .intro-one {
+    font-size: 2rem;
+  }
+
+  hr {
+    width: 90%;
+    margin: 5% auto;
+  }
+
+  .intro-list {
+    margin-top: 5%;
+    width: 65%;
+  }
+
+  .intro-list>li {
+    list-style: disc inside;
+    font-size: 1.6rem;
+    padding: .5rem 0;
+    padding-left: 6.5rem;
+  }
+
+}

@@ -1,0 +1,653 @@
+:root {
+  --darkblue-color: #00182d;
+  --darkblueborder-color: #00478a;
+  --lettertwo-color: #ffffff;
+  --letterthree-color: #828282;
+  --orange-color: #ff5900;
+  --skyblue-color: #00aeff;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif, Arial;
+}
+
+/* =============================
+      activate-off-canvas
+===============================*/
+
+input[class="activate-off-canvas"] {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: .5rem;
+  right: .5rem;
+  z-index: 9;
+  opacity: 0;
+}
+
+/* ======================
+        burguer
+========================*/
+
+.container-burguer {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: #00000038;
+  border-radius: .5rem;
+  z-index: 8;
+  transition: background-color .2s ease;
+}
+
+.burguer {
+  position: absolute;
+  top: 1.3rem;
+  right: .62rem;
+  width: 1.7rem;
+  height: .3rem;
+  background-color: var(--orange-color);
+  border-radius: 5rem;
+  transition: background-color .5s ease;
+}
+
+.burguer::before,
+.burguer::after {
+  position: absolute;
+  content: "";
+  width: 1.7rem;
+  height: .3rem;
+  background-color: var(--orange-color);
+  border-radius: .5rem;
+  transition: transform .5s ease;
+
+}
+
+.burguer::before {
+  top: -.7rem;
+}
+
+.burguer::after {
+  top: .7rem;
+}
+
+
+header {
+  position: fixed;
+  left: 100%;
+  background-color: var(--darkblue-color);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  transition: left .5s ease;
+  z-index: 7;
+}
+
+/* ======================
+    desing off canvas
+======================= */
+
+.container-title-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+.title-header-flex-end {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}
+
+.title-header {
+  font-size: 2rem;
+  color: var(--skyblue-color);
+  line-height: 1.5rem;
+}
+
+.subtitle-header {
+  font-size: .455rem;
+  font-weight: bold;
+  color: var(--orange-color);
+}
+
+nav {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav>a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--orange-color);
+  padding: 1.5rem 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.container-network-link {
+  margin-top: 5rem;
+  opacity: 0;
+  margin-bottom: 2rem;
+}
+
+.network-link {
+  margin: 0 .7rem;
+  font-size: 1.5rem;
+  color: var(--skyblue-color);
+}
+
+/* ============================
+        effect off-canvas
+============================= */
+
+.activate-off-canvas:checked {
+  position: fixed;
+  width: 2rem;
+  height: 2rem;
+  top: 1.2rem;
+  right: 1.2rem;
+
+}
+
+.activate-off-canvas:checked~.container-burguer {
+  position: fixed;
+  background-color: transparent;
+}
+
+.activate-off-canvas:checked~.container-burguer>.burguer::before {
+  transform: translate(-.5rem, .9rem) rotate(405deg);
+  width: 2.2rem;
+  height: .3rem;
+  border-radius: 0;
+}
+
+.activate-off-canvas:checked~.container-burguer>.burguer {
+  background-color: transparent;
+}
+
+.activate-off-canvas:checked~.container-burguer>.burguer::after {
+  transform: translate(-.5rem, -.5rem) rotate(-405deg);
+  width: 2.2rem;
+  height: .3rem;
+  border-radius: 0;
+}
+
+.activate-off-canvas:checked~header {
+  left: 0;
+}
+
+.activate-off-canvas:checked~header>.container-title-header {
+  transition: transform .5s ease .3s, opacity .5s ease .3s;
+  transform: scale(1.7, 1.7);
+  opacity: 1;
+}
+
+.activate-off-canvas:checked~header>nav>.link-off-canvas:first-child {
+  transition: opacity .5s ease .3s;
+  opacity: 1;
+}
+
+.activate-off-canvas:checked~header>nav>.link-off-canvas:nth-child(2) {
+  transition: opacity .5s ease .4s;
+  opacity: 1;
+}
+
+.activate-off-canvas:checked~header>nav>.link-off-canvas:nth-child(3) {
+  transition: opacity .5s ease .5s;
+  opacity: 1;
+}
+
+.activate-off-canvas:checked~header>nav>.link-off-canvas:nth-child(4) {
+  transition: opacity .5s ease .6s;
+  opacity: 1;
+}
+
+.activate-off-canvas:checked~header>nav>.link-off-canvas:nth-child(5) {
+  transition: opacity .5s ease .7s;
+  opacity: 1;
+}
+
+.activate-off-canvas:checked~header>nav>.container-network-link {
+  transition: opacity .5s ease .8s;
+  opacity: 1;
+}
+
+/* =========================
+    hero image title main
+========================== */
+.hero-image {
+  background-image: url(../img/proyecto.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 100% 0px;
+  height: 400px;
+}
+
+.container-title-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  background-color: #0000006b;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: var(--orange-color);
+  text-align: center;
+  width: 90%;
+  text-shadow: 0 .1rem .1rem #000000;
+  animation: effect-title-main .8s ease forwards;
+  opacity: 0;
+  display: inline;
+}
+
+@keyframes effect-title-main {
+  from {
+    filter: blur(20px);
+    transform: scale(0.5);
+  }
+
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.title-description {
+  font-size: 1.2rem;
+  text-align: center;
+  width: 90%;
+  color: #d5d5d5;
+  padding: 2rem 4rem;
+  animation: effect-title-description .8s ease .5s forwards;
+  opacity: 0;
+}
+
+@keyframes effect-title-description {
+  from {
+    filter: blur(20px);
+    transform: scale(0.5);
+  }
+
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =====================
+      content main
+===================== */
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -4rem;
+}
+
+.flex-item {
+  position: relative;
+  background-color: #00000060;
+  backdrop-filter: blur(2px);
+  margin-top: 1rem;
+  border: 1px solid #00000041;
+  transition: transform .5s ease;
+}
+
+.flex-item h4 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--lettertwo-color);
+  text-shadow: 1px 1px #000000;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: .5rem;
+  background-color: #0000003d;
+  backdrop-filter: blur(2px);
+  opacity: 1;
+  transform: scale(1);
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+.flex-item:hover h4 {
+  background-color: #00182d79;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.flex-item img {
+  width: 100%;
+  height: 100%;
+}
+
+.container-buttom {
+  display: flex;
+  justify-content: center;
+}
+
+.container-contact {
+  margin-top: 3rem;
+}
+
+.title-description-contact {
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--orange-color);
+  padding: 1rem 0;
+  text-shadow: 0 .1rem .1rem #0000006e;
+}
+
+.buttom {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: .5rem 1.5rem;
+  color: var(--lettertwo-color);
+  background-color: var(--skyblue-color);
+  background-position: 0 center;
+  margin-top: 2.5rem;
+  border-radius: .5rem;
+  text-decoration: none;
+  border: medium solid var(--skyblue-color);
+  transition: color .3s ease, background-color .6s ease, border .3s ease;
+}
+
+.buttom:hover {
+  border: medium solid var(--orange-color);
+  background-color: var(--orange-color);
+}
+
+/*===================
+        footer
+====================*/
+
+footer {
+  margin-top: 2rem;
+  background-color: var(--skyblue-color);
+  padding: .5rem;
+}
+
+.copyright {
+  color: var(--lettertwo-color);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.contact {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  padding: .5rem 0;
+}
+
+.contact>a {
+  text-decoration: none;
+  color: var(--lettertwo-color);
+  transition: color .3s ease;
+}
+
+.contact>a>i {
+  padding-right: .5rem;
+}
+
+.social-footer {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.social-link>i {
+  font-size: 1.5rem;
+  color: var(--lettertwo-color);
+  transition: color .3s ease;
+}
+
+.contact>a:hover,
+.social-footer>a>i:hover {
+  color: var(--darkblue-color);
+}
+
+/*============================================================================================
+                          Móviles en horizontal o tablets en vertical
+=============================================================================================*/
+
+@media screen and (min-width: 768px) {
+
+  /* ======================
+      desing off canvas
+  ======================= */
+
+  header {
+    width: 30%;
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
+
+  nav {
+    justify-content: flex-start;
+  }
+
+  nav>a {
+    font-size: 1.2rem;
+    text-align: left;
+    padding: 1rem 0 1rem 1rem;
+    border-top: thin solid var(--darkblueborder-color);
+  }
+
+  nav>.link-off-canvas:nth-child(5) {
+    border-bottom: thin solid var(--darkblueborder-color);
+  }
+
+  /* ============================
+        effect off-canvas
+  ============================= */
+
+  .activate-off-canvas:checked~header {
+    left: 70%;
+  }
+
+  .activate-off-canvas:checked~header>.container-title-header {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  /* =====================
+        content main
+  ===================== */
+
+  .flex-item {
+    flex: 0 0 48%;
+    margin: 1% 1%;
+  }
+
+  .flex-item:hover {
+    transform: scale(1.1);
+    z-index: 2;
+  }
+
+  /*===================
+        footer
+  ====================*/
+
+  footer {
+    line-height: 1.5rem;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .copyright {
+    width: 55%;
+  }
+
+  .contact {
+    flex-flow: row wrap;
+    width: 45%;
+    padding: 0;
+  }
+
+  .social-footer {
+    width: 15%;
+    padding-top: .5rem;
+  }
+
+}
+
+/*============================================================================================
+                          Tablets en horizonal y escritorios normales
+============================================================================================*/
+
+@media screen and (min-width: 1024px) {
+
+  /* =============================
+        activate-off-canvas
+  ===============================*/
+
+  input[class="activate-off-canvas"] {
+    display: none;
+  }
+
+  /* ======================
+        burguer
+  ========================*/
+
+  .container-burguer {
+    display: none;
+  }
+
+  header {
+    position: absolute;
+    height: 4rem;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-color: #00000033;
+  }
+
+  /* ======================
+      desing off canvas
+  ======================= */
+
+  .container-title-header {
+    opacity: 1;
+    justify-content: flex-start;
+    width: 15%;
+    position: absolute;
+    top: 1rem;
+    left: 3rem;
+    transform: scale(1.3);
+  }
+
+  nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    flex-flow: row;
+    justify-content: flex-end;
+    width: 75%;
+  }
+
+  nav>a {
+    line-height: 4rem;
+    padding: 0 1rem;
+    opacity: 1;
+    width: auto;
+    border: none !important;
+    color: var(--lettertwo-color);
+    transition: color .3s ease;
+  }
+
+  nav>a:hover {
+    color: var(--skyblue-color);
+  }
+
+  nav>a.link-off-canvas:nth-child(3) {
+    color: var(--skyblue-color);
+  }
+
+  .container-network-link {
+    display: none;
+  }
+
+  /* =============================
+      hero image and title main
+  ============================= */
+
+  .hero-image {
+    background-position: 100%;
+    background-size: cover;
+  }
+
+
+  h1 {
+    font-size: 2.8rem;
+  }
+  
+  /* =====================
+        content main
+  ===================== */
+
+  .flex-item {
+    flex: 0 0 32%;
+    margin: 0.5% 0.5%;
+  }
+
+  .flex-item:hover {
+    transform: scale(1.3);
+  }
+
+  /*===================
+          footer
+  ====================*/
+
+  .copyright {
+    width: 40%;
+  }
+
+  .contact {
+    width: 35%;
+  }
+
+  .social-footer {
+    width: 10%;
+    padding: 0;
+  }
+
+}
